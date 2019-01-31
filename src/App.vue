@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <up-load-excel></up-load-excel>
+    <up-load-excel v-show="btn_flag"></up-load-excel>
     <Header></Header>
     <el-container>
       <sidebar></sidebar>
@@ -15,6 +15,7 @@ import Mainer from "./components/mainer/mainer";
 import Sidebar from "./components/sidebar/sidebar";
 import upLoadExcel from "./base/upLoadExcel/upLoadExcel";
 import { projectData } from "./api/index";
+import Bus from "./common/js/bus";
 export default {
   name: "app",
   components: {
@@ -24,13 +25,17 @@ export default {
     upLoadExcel
   },
   data() {
-    return { mock: "" };
+    return {btn_flag :false};
   },
   created() {
-    // console.log('app',projectData)  // 打印api所有数据
-    console.log(projectData);
+    Bus.$on('show_btn',count=>{
+      if(parseInt(count)===3){
+        this.btn_flag  = true
+      }
+    })
+    console.log('app',projectData)  // 打印api所有数据
   },
-  mouted() {
+  computed: {
   }
 };
 </script>
