@@ -1,6 +1,6 @@
 # vue-example
 
-> A Vue.js project
+> 使用vue-cli,element-ui,js-xlsx
 
 ## Build Setup
 
