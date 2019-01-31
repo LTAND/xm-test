@@ -1,6 +1,6 @@
-# vue-example
+# xm-test
 
-> 使用vue-cli,element-ui,js-xlsx
+> 使用vue-cli, element-ui, js-xlsx
 
 ## Build Setup
 
