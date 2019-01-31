@@ -5,15 +5,15 @@
 ## Build Setup
 
 ``` bash
-# install dependencies
+# 下载包
 1.npm install
 
-# serve with hot reload at localhost:8080
+# 本地运行
 2.npm run dev
 
-# build for production with minification
+# 打包
 3.npm run build
 
-# build for production and view the bundle analyzer report
-npm run build --report
+# 打包上传gh-pages, 输出结果Published
+4.npm run deploy
 ```
