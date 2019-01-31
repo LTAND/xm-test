@@ -2,6 +2,8 @@
 
 > 使用vue-cli, element-ui, js-xlsx
 
+## gh-pages url: ltand.github.io/xm-test
+
 ## Build Setup
 
 ``` bash
