@@ -1,7 +1,10 @@
 <template>
   <el-main>
-    <h1 class="title">{{proName+tableData.fileName}}</h1>
-    <el-table :data="tableData.data" border style="width: 100%">
+    <div class="title">
+      <h1>{{proName+tableData[vindex].fileName+" "+tableData[vindex].versions}}</h1>
+      <select-versions :versions="versions"></select-versions>
+    </div>
+    <el-table :data="tableData[vindex].data" border style="width: 100%">
       <el-table-column prop="num" label="编号" width="50"></el-table-column>
       <el-table-column prop="step" label="测试步骤"></el-table-column>
       <el-table-column prop="result" label="预期结果" width="300"></el-table-column>
@@ -12,10 +15,12 @@
 </template>
 
 <script>
+import Bus from '../../common/js/bus'
+import SelectVersions from "../../base/select-versions/select-versions";
 export default {
   props: {
     tableData: {
-      type: Object,
+      type: Array,
       default: null
     },
     proName: {
@@ -23,15 +28,36 @@ export default {
       default: ""
     }
   },
-  created() {},
+  components: {
+    SelectVersions
+  },
+  created() {
+    this.getVersions();
+    Bus.$on('selectVersion',vindex=>{
+      this.vindex = vindex
+    })
+  },
   data() {
-    return {};
+    return { 
+      versions: [],
+      vindex:0
+    };
+  },
+  methods: {
+    getVersions() {
+      const arr = [];
+      this.tableData.forEach((el, i) => {
+        arr.push({ value: String(i), label: el.versions });
+      });
+      this.versions = arr;
+    }
   }
 };
 </script>    
 <style lang='stylus' scoped rel='stylesheet/stylus'>
-h1
-  font-size: 20px
-  color: #757576
-  text-align: center
+.title
+  h1
+    font-size: 20px
+    color: #757576
+    text-align: center
 </style>

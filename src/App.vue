@@ -25,18 +25,17 @@ export default {
     upLoadExcel
   },
   data() {
-    return {btn_flag :false};
+    return { btn_flag: false };
   },
   created() {
-    Bus.$on('show_btn',count=>{
-      if(parseInt(count)===3){
-        this.btn_flag  = true
+    Bus.$on("show_btn", count => {
+      if (parseInt(count) === 3) {
+        this.btn_flag = true;
       }
-    })
-    console.log('app',projectData)  // 打印api所有数据
+    });
+    // console.log('app',projectData)  // 打印api所有数据
   },
-  computed: {
-  }
+  computed: {}
 };
 </script>
 <style lang='stylus' scoped rel='stylesheet/stylus'>

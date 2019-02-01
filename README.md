@@ -2,7 +2,7 @@
 
 > 使用vue-cli, element-ui, js-xlsx
 
-## [gh-pages-url](https://ltand.github.io/xm-test)
+## [预览地址](https://ltand.github.io/xm-test)
 
 ## Build Setup
 
